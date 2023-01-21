@@ -1,0 +1,48 @@
+>>> book = dict()
+>>> book[“apple”] = 0.67 An apple costs 67 cents.
+>>> book[“milk”] = 1.49 Milk costs $1.49.
+>>> book[“avocado”] = 1.49
+>>> print book
+{‘avocado’: 1.49, ‘apple’: 0.67, ‘milk’: 1.49}
+>>> print book[“avocado”]
+
+output:
+1.49 
+-------------------------------------------------
+>>> phone_book = dict()
+>>> phone_book = {}
+>>> phone_book[“jenny”] = 8675309
+>>> phone_book[“emergency”] = 911
+>>> print phone_book[“jenny”]
+
+output:
+8675309
+--------------------------------------------------
+voted = {}
+def check_voter(name):
+ if voted.get(name):
+ print “kick them out!”
+ else:
+ voted[name] = True
+ print “let them vote!”
+ 
+ output:
+ Testing code:
+>>> check_voter(“tom”)
+let them vote!
+>>> check_voter(“mike”)
+let them vote!
+>>> check_voter(“mike”)
+kick them out!
+-------------------------------------------------
+Using hash tables as a cache:
+
+cache = {}
+def get_page(url):
+ if cache.get(url):
+ return cache[url] Returns cached data
+ else:
+ data = get_data_from_server(url)
+ cache[url] = data Saves this data in your cache first
+ return data
+ 
