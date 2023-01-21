@@ -1,0 +1,55 @@
+Implementing the graph:
+
+graph = {}
+graph[“you”] = [“alice”, “bob”, “claire”]
+graph[“bob”] = [“anuj”, “peggy”]
+graph[“alice”] = [“peggy”]
+graph[“claire”] = [“thom”, “jonny”]
+graph[“anuj”] = []
+graph[“peggy”] = []
+graph[“thom”] = []
+graph[“jonny”] = []
+graph[“claire”] = [“thom”, “jonny”]
+graph[“anuj”] = []
+graph[“anuj”] = []
+graph[“claire”] = [“thom”, “jonny”]
+--------------------------------------------------
+(deque) :: Double ended queuqs
+
+Make a queue to start. In Python, you use the double-ended queue 
+(deque) function for this:
+
+from collections import deque 
+search_queue = deque() 
+search_queue += graph[“you”] 
+Remember, graph[“you”] will give you a list of all your 
+neighbors, like [“alice”, “bob”, “claire”]
+
+Those all get added to the search queue.
+----------------------------------------------------
+while search_queue: 
+ person = search_queue.popleft() 
+ if person_is_seller(person): 
+ print person + “ is a mango seller!” 
+ return True
+ else: 
+ search_queue += graph[person] 
+return False
+----------------------------------------------------
+----------------------------------------------------
+Here’s the final code for breadth-first search, taking that into account:
+
+def search(name):
+ search_queue = deque()
+ search_queue += graph[name] 
+ searched = [] 
+ while search_queue:
+ person = search_queue.popleft() 
+ if not person in searched: 
+ if person_is_seller(person):
+ print person + “ is a mango seller!”
+ return True
+ else:
+ search_queue += graph[person] 
+ searched.append(person)
+ return False
