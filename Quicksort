@@ -25,3 +25,15 @@ less than the pivot
 greater than the pivot
  return quicksort(less) + [pivot] + quicksort(greater)
 print quicksort([10, 5, 2, 3])
+----------------------------------------------------------------------------
+Merge sort vs. quicksort
+----------------------------------------------------------------------------
+def print_items(list):
+ for item in list:
+ print item
+ 
+ from time import sleep
+def print_items2(list):
+ for item in list:
+ sleep(1)
+ print item
